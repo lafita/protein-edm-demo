@@ -1,5 +1,7 @@
 # Protein modelling with EDMs
 
+[![DOI](https://zenodo.org/badge/276220857.svg)](https://zenodo.org/badge/latestdoi/276220857)
+
 ### Description
 This repository contains code written in `R` to demonstrate a protein modelling approach based on **Euclidean Distance Matrices (EDMs)**.
 
