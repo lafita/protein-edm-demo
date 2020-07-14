@@ -24,7 +24,7 @@ Scripts can be run in `Rstudio` or from the command line using `Rscript` (within
 ```
 Rscript cp.R
 ```
-They were created as a proof of concept only, so input parameters are hard-coded in the scripts for simplicity.
+This is a proof of concept only, so input parameters are hard-coded in the scripts for simplicity.
 To use custom protein structures manually edit the `input` and `output` variables using the path to the new PDB file, and adjust the other options.
 
 If you need help modelling large numbers of structures, please get in touch.
