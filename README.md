@@ -36,5 +36,4 @@ The data files are made available under a [CC BY 4.0 license](https://creativeco
 
 ### Article
 
-Article currently in preparation.
-
+>Lafita A and Bateman A. Modelling structural rearrangements in proteins using Euclidean distance matrices. F1000Research 2020, 9:728 https://doi.org/10.12688/f1000research.25235.1
