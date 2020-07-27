@@ -11,7 +11,8 @@ Running times to generate C-alpha and backbone models of circular permutations (
 
 ### Installation
 
-The only requirement is `R` version **3.6 with** the following packages that can be installed from **CRAN**: `dplyr`, `bio3d`, and `edmcr`.
+The only requirement is `R` version **3.6** with the following packages that can be installed from **CRAN**: `dplyr`, `bio3d`, and `edmcr`.
+
 If you have problems installing the `edmcr` package, try installing it from **GitHub** with `devtools` using:
 ```
 library(devtools)
