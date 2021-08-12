@@ -13,7 +13,7 @@ output = "e1shgA1_cp33.pdb"
 index = 33 # residue index to do the circular permutant
 off = 1 # length of terminal loop (offset at each side of the old termini)
 
-# Granularity
+# Granularity: calpha, backbone
 atoms = "calpha"
 
 # EDMC algorithm parameters
@@ -129,6 +129,13 @@ data.pdb.mds = data.pdb
 data.pdb.mds$atom = pdb.atoms.cp
 data.pdb.mds$xyz = matrix(t(C), nrow = 1)
 
+# If the structure is in the wrong chirality, invert the Z direction
+if (!same_chirality(data.pdb, data.pdb.mds)) {
+  message("##  Inverting model chirality...")
+  C[,3] = -C[,3]
+  data.pdb.mds$xyz = matrix(t(C), nrow = 1)
+}
+
 write.pdb(
   data.pdb.mds,
   output
@@ -136,4 +143,5 @@ write.pdb(
 
 message(sprintf("##  Model saved to '%s'", output))
 message("## Done!")
+
 

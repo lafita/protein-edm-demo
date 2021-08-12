@@ -66,3 +66,19 @@ apply_bounds = function(distmat.df) {
   
 }
 
+# Check if the chirality of the protein structure is maintained
+same_chirality = function(data.pdb, data.pdb.mds) {
+  
+  # Calculate torsion angles of old and new structures
+  torsion.orig = torsion.pdb(data.pdb)
+  torsion.new = torsion.pdb(data.pdb.mds)
+  
+  # Extract the CA dihedral angles
+  alpha.orig = mean(torsion.orig$alpha, na.rm=T)
+  alpha.new = mean(torsion.new$alpha, na.rm=T)
+  
+  # Return if the average sign of the angles agrees
+  return(sign(alpha.orig) == sign(alpha.new))
+  
+}
+

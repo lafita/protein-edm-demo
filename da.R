@@ -13,7 +13,7 @@ output = "e1shgA1_da8-17.pdb"
 dels = 8:17
 off = 1 # offset of unfolded residues at each side of the deletion
 
-# Granularity
+# Granularity: calpha, backbone
 atoms = "calpha"
 
 # EDMC algorithm parameters
@@ -120,6 +120,13 @@ C = fit$X
 data.pdb.mds = data.pdb
 data.pdb.mds$atom = pdb.atoms
 data.pdb.mds$xyz = matrix(t(C), nrow = 1)
+
+# If the structure is in the wrong chirality, invert the Z direction
+if (!same_chirality(data.pdb, data.pdb.mds)) {
+  message("##  Inverting model chirality...")
+  C[,3] = -C[,3]
+  data.pdb.mds$xyz = matrix(t(C), nrow = 1)
+}
 
 write.pdb(
   data.pdb.mds,

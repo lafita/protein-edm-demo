@@ -13,7 +13,7 @@ output = "e1shgA1_dsd33.pdb"
 index = 33 # residue index to do the swapping hinge loop
 hinge = 1 # residues to unfold in the hinge loop
 
-# Granularity
+# Granularity: calpha, backbone
 atoms = "calpha"
 
 # EDMC algorithm parameters
@@ -136,6 +136,13 @@ C = fit$X
 data.pdb.mds = data.pdb
 data.pdb.mds$atom = pdb.atoms.dimer
 data.pdb.mds$xyz = matrix(t(C), nrow = 1)
+
+# If the structure is in the wrong chirality, invert the Z direction
+if (!same_chirality(data.pdb, data.pdb.mds)) {
+  message("##  Inverting model chirality...")
+  C[,3] = -C[,3]
+  data.pdb.mds$xyz = matrix(t(C), nrow = 1)
+}
 
 write.pdb(
   data.pdb.mds,
